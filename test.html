@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form></form>
+    <script>
+        var body = new FormData();
+        body.append("signup","1");
+        body.append("name","name");
+        body.append("email","email");
+        body.append("password","password");
+        fetch("./index.php",{
+            method:"POST",
+            body:body
+        }).then(r=>r.text()).then(r=>console.log(r));
+    </script>
+</body>
+</html>
