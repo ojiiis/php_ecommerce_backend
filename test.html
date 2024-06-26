@@ -8,15 +8,26 @@
 <body>
     <form></form>
     <script>
-        var body = new FormData();
-        body.append("signup","1");
-        body.append("name","name");
-        body.append("email","email");
-        body.append("password","password");
-        fetch("./index.php",{
+        // var body = new FormData();
+        // body.append("signup","1");
+        // body.append("name","name");
+        // body.append("email","email");
+        // body.append("password","password");
+        // fetch("./index.php",{
+        //     method:"POST",
+        //     body:body
+        // }).then(r=>r.text()).then(r=>console.log(r));
+
+
+        fetch("./index.php?sign_in",{
             method:"POST",
-            body:body
-        }).then(r=>r.text()).then(r=>console.log(r));
+            headers:{
+                "Content-Type":"application/json"
+            },
+            body:JSON.stringify({
+                "test":"data"
+            })
+        })
     </script>
 </body>
 </html>

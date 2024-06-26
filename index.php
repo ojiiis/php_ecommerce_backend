@@ -1,7 +1,7 @@
 <?php
  session_start();
  $con = mysqli_connect("localhost","root","","ecom");
-
+ 
  if(isset($_POST['signup'])){
   $stat  = 0;
   $message = "";
@@ -30,8 +30,18 @@
   ]);
  }
 
- if(isset($_POST['sign_in'])){
-  
+ if(isset($_GET['sign_in'])){
+  //echo "HEHE";
+  if(!isset($_POST['email']) || !isset($_POST['password'])){
+    array_push($errors,"All fields are required.");
+  }
+  $checkqry = mysqli_query($con,"SELECT * FROM user WHERE email='".$_POST['email']."' && password='".md5($_POST['password'])."'  ");
+  if($checkqry->num_rows > 0){
+   
+  }else{
+    array_push($errors,"Invalid password.");
+  }
+
  }
 
 

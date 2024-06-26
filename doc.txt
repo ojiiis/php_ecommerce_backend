@@ -1,0 +1,16 @@
+documentation ///
+
+/signup
+
+keys:
+signup
+name
+email 
+password
+
+/signip
+
+keys:
+
+email 
+password
