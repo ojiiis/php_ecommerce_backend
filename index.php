@@ -14,7 +14,7 @@
     array_push($errors,"Email already existing.");
   }
    if(!count($errors)){
-    if(mysqli_query($con,"INSERT INTO `user`(`name`, `email`, `password`) value('".$_POST['name']."','".$_POST['email']."','".$_POST['password']."') ")){
+    if(mysqli_query($con,"INSERT INTO `user`(`name`, `email`, `password`) value('".$_POST['name']."','".$_POST['email']."','".md5($_POST['password'])."') ")){
       $stat  = 1;
       $message = "You record was added.";
     }else{
@@ -28,6 +28,10 @@
     "errors"=>$errors,
     "date"=>date("d M, Y.")
   ]);
+ }
+
+ if(isset($_POST['sign_in'])){
+  
  }
 
 
